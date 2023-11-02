@@ -17,9 +17,11 @@ async function getApiResolver() {
     case '13':
       ({ apiResolver } = await import('next13/dist/server/api-utils/node/api-resolver'));
       break;
-    default:
+    case '14':
       ({ apiResolver } = await import('next14/dist/server/api-utils/node/api-resolver'));
       break;
+    default:
+      throw new Error('Next.js version not specified.');
   }
 
   return apiResolver;
